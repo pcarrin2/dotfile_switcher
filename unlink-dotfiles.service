@@ -1,0 +1,19 @@
+[Unit]
+Description=Remove symlinks to dotfiles
+Before=halt.target 
+Before=poweroff.target 
+Before=reboot.target 
+Before=shutdown.target
+DefaultDependencies=no
+
+[Service]
+User=
+Group=
+ExecStart=~/.dotfile_switcher/shutdown.sh
+Type=oneshot
+
+[Install]
+WantedBy=halt.target 
+WantedBy=poweroff.target 
+WantedBy=reboot.target 
+WantedBy=shutdown.target
